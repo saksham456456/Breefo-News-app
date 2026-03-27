@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Rounded Background Rect -->
+    <path
+        android:fillColor="#1A237E"
+        android:pathData="M12,0L88,0A12,12 0,0 1,100 12L100,88A12,12 0,0 1,88 100L12,100A12,12 0,0 1,0 88L0,12A12,12 0,0 1,12 0z" />
+
+    <!-- Paper Elements -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#DCDCDC"
+        android:strokeWidth="0.5"
+        android:pathData="M30,20 L50,40 L40,50 L20,30 Z" />
+    <path
+        android:fillColor="#F5F5F5"
+        android:pathData="M33,23 L47,37 L42,42 L28,28 Z" />
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M35,25 L45,35 L43,37 L33,27 Z" />
+
+    <!-- Orange Accent (X-like element) -->
+    <path
+        android:fillColor="#F57C00"
+        android:pathData="M60,20 L75,35 L55,55 L40,40 Z" />
+
+    <!-- Text is usually better as separate TextView or converted to path,
+         but here I'll simplify it or skip for vector drawable if it's too complex.
+         Let's try to add it as a path if possible, or just the logo part.
+         The user wants the icon, so the logo part is most important. -->
+</vector>
