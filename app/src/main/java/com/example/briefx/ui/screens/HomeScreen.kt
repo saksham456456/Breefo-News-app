@@ -25,6 +25,7 @@ fun HomeScreen(
     val articles by viewModel.articles.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val selectedCategory by viewModel.selectedCategory.collectAsState()
+    val errorMessage by viewModel.errorMessage.collectAsState()
 
     val categories = listOf("General", "Business", "Technology", "Science", "Health", "Entertainment", "Sports")
 
@@ -55,6 +56,16 @@ fun HomeScreen(
             if (isLoading && articles.isEmpty()) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
+                }
+            } else if (errorMessage != null && articles.isEmpty()) {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(text = "Error: $errorMessage", color = MaterialTheme.colorScheme.error)
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Button(onClick = { viewModel.fetchNews() }) {
+                            Text("Retry")
+                        }
+                    }
                 }
             } else {
                 LazyColumn(

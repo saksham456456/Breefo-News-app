@@ -27,6 +27,9 @@ class NewsViewModel : ViewModel() {
     private val _selectedCategory = MutableStateFlow("general")
     val selectedCategory: StateFlow<String> = _selectedCategory
 
+    private val _errorMessage = MutableStateFlow<String?>(null)
+    val errorMessage: StateFlow<String?> = _errorMessage
+
     init {
         fetchNews()
     }
@@ -35,13 +38,16 @@ class NewsViewModel : ViewModel() {
         _selectedCategory.value = category
         viewModelScope.launch {
             _isLoading.value = true
+            _errorMessage.value = null
             try {
                 val response = apiService.getTopHeadlines(category = if (category == "general") null else category)
                 if (response.isSuccessful) {
                     _articles.value = response.body()?.articles ?: emptyList()
+                } else {
+                    _errorMessage.value = "Failed to load news: ${response.message()}"
                 }
             } catch (e: Exception) {
-                // Handle error
+                _errorMessage.value = "Network error: ${e.localizedMessage ?: "Unknown error"}"
             } finally {
                 _isLoading.value = false
             }
@@ -51,13 +57,16 @@ class NewsViewModel : ViewModel() {
     fun searchNews(query: String) {
         viewModelScope.launch {
             _isLoading.value = true
+            _errorMessage.value = null
             try {
                 val response = apiService.searchNews(query = query)
                 if (response.isSuccessful) {
                     _articles.value = response.body()?.articles ?: emptyList()
+                } else {
+                    _errorMessage.value = "Failed to search news: ${response.message()}"
                 }
             } catch (e: Exception) {
-                // Handle error
+                _errorMessage.value = "Network error: ${e.localizedMessage ?: "Unknown error"}"
             } finally {
                 _isLoading.value = false
             }
