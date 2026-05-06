@@ -6,10 +6,16 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,8 +34,13 @@ import com.example.briefx.ui.theme.TextTertiary
 @Composable
 fun NewsCard(
     article: Article,
+    isSavedInitially: Boolean = false,
+    onSaveClick: (Article) -> Unit,
+    onShareClick: (Article) -> Unit,
     onClick: () -> Unit
 ) {
+    var isSaved by remember(isSavedInitially) { mutableStateOf(isSavedInitially) }
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -101,10 +112,17 @@ fun NewsCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(onClick = { /* Save */ }) {
-                    Icon(Icons.Default.BookmarkBorder, contentDescription = "Save", tint = TextSecondary)
+                IconButton(onClick = {
+                    isSaved = !isSaved
+                    onSaveClick(article)
+                }) {
+                    Icon(
+                        imageVector = if (isSaved) Icons.Default.Bookmark else Icons.Default.BookmarkBorder,
+                        contentDescription = "Save",
+                        tint = if (isSaved) ElectricBlue else TextSecondary
+                    )
                 }
-                IconButton(onClick = { /* Share */ }) {
+                IconButton(onClick = { onShareClick(article) }) {
                     Icon(Icons.Default.Share, contentDescription = "Share", tint = TextSecondary)
                 }
             }
