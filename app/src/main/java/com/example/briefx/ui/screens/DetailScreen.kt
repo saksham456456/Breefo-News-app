@@ -10,7 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.OpenInNew
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -188,7 +188,7 @@ fun DetailScreen(
                 contentPadding = PaddingValues(16.dp),
                 shape = RoundedCornerShape(8.dp)
             ) {
-                Icon(Icons.Default.OpenInNew, contentDescription = null)
+                Icon(Icons.AutoMirrored.Filled.OpenInNew, contentDescription = null)
                 Spacer(modifier = Modifier.width(8.dp))
                 Text("Source: ${article.source.name}", fontWeight = FontWeight.Bold)
             }

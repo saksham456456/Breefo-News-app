@@ -5,11 +5,21 @@ plugins {
 }
 
 android {
+
     namespace = "com.example.briefx"
     compileSdk = 35
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("release-keystore.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: ""
+            keyAlias = System.getenv("KEY_ALIAS") ?: ""
+            keyPassword = System.getenv("KEY_PASSWORD") ?: ""
+        }
+    }
+
     defaultConfig {
-        applicationId = "com.example.briefx"
+        applicationId = "com.breefo.app"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
@@ -20,6 +30,7 @@ android {
 
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -31,9 +42,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         compose = true
     }
@@ -66,4 +75,9 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+}
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+    }
 }
