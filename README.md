@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>📰 BriefX</h1>
-  <p><strong>Your daily dose of news, curated and summarized efficiently. BriefX respects your time.</strong></p>
+  <h1>📰 Breefo</h1>
+  <p><strong>Your daily dose of news, curated and summarized efficiently. Breefo respects your time.</strong></p>
 
   [![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-blue.svg?logo=kotlin)](https://kotlinlang.org)
   [![Jetpack Compose](https://img.shields.io/badge/Jetpack_Compose-Material3-4285F4?logo=android)](https://developer.android.com/jetpack/compose)
@@ -10,13 +10,13 @@
 
 ---
 
-## 📖 About BriefX
+## 📖 About Breefo
 
-**BriefX** is a modern, lightweight Android application designed to deliver the latest news efficiently. Built with cutting-edge Android development technologies like **Jetpack Compose** and **Kotlin**, BriefX focuses on delivering a streamlined reading experience.
+**Breefo** is a modern, lightweight Android application designed to deliver the latest news efficiently. Built with cutting-edge Android development technologies like **Jetpack Compose** and **Kotlin**, Breefo focuses on delivering a streamlined reading experience.
 
-At the core of BriefX is the **Smart Summary Engine**, which extracts the most crucial information from news articles, providing you with a quick TL;DR and Key Points, so you can stay informed without spending hours reading long-form content.
+At the core of Breefo is the **Smart Summary Engine**, which extracts the most crucial information from news articles, providing you with a quick TL;DR and Key Points, so you can stay informed without spending hours reading long-form content.
 
-Whether you're interested in General News, Technology, Business, Science, Health, Entertainment, or Sports, BriefX tailors the feed to your preferences.
+Whether you're interested in General News, Technology, Business, Science, Health, Entertainment, or Sports, Breefo tailors the feed to your preferences.
 
 ---
 
@@ -34,9 +34,9 @@ Whether you're interested in General News, Technology, Business, Science, Health
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="https://placehold.co/300x600/1E1E1E/00D2FF?text=BriefX\nHome+Screen&font=Montserrat" alt="BriefX Home Screen" width="30%" />
+  <img src="https://placehold.co/300x600/1E1E1E/00D2FF?text=Breefo\nHome+Screen&font=Montserrat" alt="Breefo Home Screen" width="30%" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://placehold.co/300x600/1E1E1E/00D2FF?text=Smart+Summary\nDetail+View&font=Montserrat" alt="BriefX Detail View" width="30%" />
+  <img src="https://placehold.co/300x600/1E1E1E/00D2FF?text=Smart+Summary\nDetail+View&font=Montserrat" alt="Breefo Detail View" width="30%" />
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="https://placehold.co/300x600/1E1E1E/00D2FF?text=Category\nFiltering&font=Montserrat" alt="Category Filtering" width="30%" />
 </div>
@@ -47,7 +47,7 @@ Whether you're interested in General News, Technology, Business, Science, Health
 
 ## 🛠️ Tech Stack & Architecture
 
-BriefX showcases modern Android development practices:
+Breefo showcases modern Android development practices:
 
 - **Language:** [Kotlin](https://kotlinlang.org/)
 - **UI Framework:** [Jetpack Compose](https://developer.android.com/jetpack/compose) (Material 3)
@@ -61,7 +61,7 @@ BriefX showcases modern Android development practices:
 
 ## 🏗️ Getting Started
 
-Follow these instructions to get a copy of BriefX up and running on your local machine for development and testing.
+Follow these instructions to get a copy of Breefo up and running on your local machine for development and testing.
 
 ### Prerequisites
 
@@ -73,12 +73,12 @@ Follow these instructions to get a copy of BriefX up and running on your local m
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/BriefX.git
-   cd BriefX
+   git clone https://github.com/yourusername/Breefo.git
+   cd Breefo
    ```
 
 2. **Open the Project:**
-   Open Android Studio, select `Open an existing Android Studio project`, and navigate to the cloned `BriefX` directory.
+   Open Android Studio, select `Open an existing Android Studio project`, and navigate to the cloned `Breefo` directory.
 
 3. **Configure the API Key:**
    - The app currently uses a hardcoded API key in the `NewsApiService.kt` for demonstration purposes.
@@ -102,10 +102,33 @@ The project is configured for testing using standard Android testing libraries. 
 
 ---
 
+
+---
+
+## 📦 Google Play Publishing
+
+The application is fully configured and ready for the Google Play Store.
+
+### Generated Artifact
+A signed Android App Bundle (.aab) has been generated and placed in the project root for your convenience:
+`release-artifacts/breefo-release.aab`
+
+*(Note: The original bundle is also still available in the standard build directory at `app/build/outputs/bundle/release/app-release.aab`)*
+
+### Keystore and Security
+The app is signed with a new Java Keystore (`release-keystore.jks`). For security reasons, this binary file is ignored by Git and should not be tracked in version control.
+
+The signing configuration in `app/build.gradle.kts` securely loads credentials via environment variables:
+- `KEYSTORE_PASSWORD`
+- `KEY_ALIAS`
+- `KEY_PASSWORD`
+
+*Important: Never hardcode your keystore passwords in the repository!*
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check out the [issues page](https://github.com/yourusername/BriefX/issues) if you want to contribute.
+Feel free to check out the [issues page](https://github.com/yourusername/Breefo/issues) if you want to contribute.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)

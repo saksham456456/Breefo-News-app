@@ -24,7 +24,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
-fun BriefXTheme(
+fun BreefoTheme(
     darkTheme: Boolean = true, // Force dark mode as per Gen Z preference
     content: @Composable () -> Unit
 ) {
