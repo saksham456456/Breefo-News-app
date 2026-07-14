@@ -196,7 +196,7 @@ fun DetailScreen(
             Spacer(modifier = Modifier.height(24.dp))
             
             Text(
-                text = "BriefX respects your time. You've completed this briefing in ~30 sec.",
+                text = "Breefo respects your time. You've completed this briefing in ~30 sec.",
                 style = MaterialTheme.typography.labelSmall,
                 color = TextTertiary,
                 modifier = Modifier.align(Alignment.CenterHorizontally)

@@ -13,7 +13,7 @@ import com.example.briefx.data.model.Article
 import com.example.briefx.ui.NewsViewModel
 import com.example.briefx.ui.screens.DetailScreen
 import com.example.briefx.ui.screens.HomeScreen
-import com.example.briefx.ui.theme.BriefXTheme
+import com.example.briefx.ui.theme.BreefoTheme
 import android.util.Base64
 import com.google.gson.Gson
 
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            BriefXTheme {
+            BreefoTheme {
                 val navController = rememberNavController()
                 val newsViewModel: NewsViewModel = viewModel()
 

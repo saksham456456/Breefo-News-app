@@ -34,7 +34,7 @@ fun HomeScreen(
             TopAppBar(
                 title = {
                     Text(
-                        "BriefX",
+                        "Breefo",
                         style = MaterialTheme.typography.headlineMedium,
                         fontWeight = FontWeight.ExtraBold
                     )
