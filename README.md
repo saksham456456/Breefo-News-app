@@ -147,3 +147,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <div align="center">
   <p>Built with ❤️ using Android and Jetpack Compose.</p>
 </div>
+
+## Building the Release Bundle
+To build the release bundle:
+1. Provide the `release-keystore.jks` at the project root or in `app/`.
+2. Set the environment variables `KEYSTORE_PASSWORD`, `KEY_ALIAS`, and `KEY_PASSWORD`.
+3. Run `./gradlew bundleRelease`.
